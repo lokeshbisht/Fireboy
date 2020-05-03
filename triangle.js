@@ -4,7 +4,7 @@ const ctx = cvs.getContext("2d");
 ctx.canvas.width  = window.innerWidth;
 ctx.canvas.height = window.innerHeight;
  
-let x2 = 700
+let x2 = 600
 let y2 = 30
 
 let x1 = 30
@@ -31,14 +31,34 @@ ctx.strokeRect(x3, y3, 2, 2);
 let currX = x2
 let currY = y2
 
+let rand = Math.floor(Math.random() * 4)
+
+let col = "green"
+
+cvs.addEventListener('click', function(event){
+
+    x2 = event.clientX;
+    y2 = event.clientY;
+	//ctx.clearRect(0, 0, 2000, 2000)
+	
+	if (col === "green") {
+		col = "red"
+	}
+	else {
+		col = "green"
+	}
+}, false);
+
 function draw() {
 	
 	let x
 	let y
 	
-	ctx.clearRect(0, 0, 2000, 20)
 	
-	let rand = Math.random() * 3
+		rand = Math.floor(Math.random() * 3)
+	
+	
+	
 	
 	if (rand < 1) {
 		x = (currX + x1) / 2
@@ -52,7 +72,7 @@ function draw() {
 		
 		currX = x
 		currY = y
-	} else {
+	} else{
 		x = (currX + x3) / 2
 		y = (currY + y3) / 2
 		
@@ -61,10 +81,10 @@ function draw() {
 	}
 	
 	
-	ctx.fillStyle = "green";	
-	ctx.fillRect(currX, currY, 2, 2);
-	ctx.strokeStyle = "green";
-	ctx.strokeRect(currX, currY, 2, 2);
+	ctx.fillStyle = col;	
+	ctx.fillRect(currX, currY, 10, 10);
+	ctx.strokeStyle = "blue";
+	ctx.strokeRect(currX, currY, 10, 10);
 }
 
 let game = setInterval(draw);
