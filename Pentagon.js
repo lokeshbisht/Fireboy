@@ -1,4 +1,4 @@
-const cvs = document.getElementById("snake");
+const cvs = document.getElementById("pentagon");
 const ctx = cvs.getContext("2d");
 
 ctx.canvas.width  = window.innerWidth;

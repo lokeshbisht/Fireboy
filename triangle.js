@@ -82,9 +82,7 @@ function draw() {
 	
 	
 	ctx.fillStyle = col;	
-	ctx.fillRect(currX, currY, 10, 10);
-	ctx.strokeStyle = "blue";
-	ctx.strokeRect(currX, currY, 10, 10);
+	ctx.fillRect(currX, currY, 1, 1);
 }
 
 let game = setInterval(draw);
